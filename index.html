@@ -174,6 +174,7 @@
   .tariff .tbl th:first-child, .tariff .tbl td:first-child { text-align: left; font-weight: 700; color: var(--navy); }
   .tariff .tbl td { white-space: nowrap; font-size: 13.5px; }
   .tariff .tbl td:first-child { white-space: normal; overflow-wrap: anywhere; font-size: 13.5px; }
+  .tariff .tbl td small { display: block; font-size: 12px; font-weight: 600; color: var(--muted); }
   .tariff-note { font-size: 13.5px; color: var(--muted); }
   .cancel .tbl td:first-child { font-weight: 700; color: var(--navy); width: 38%; }
 
@@ -232,6 +233,26 @@
 
   footer { text-align: center; font-size: 13px; color: var(--muted); padding: 20px 16px 110px; }
   @media (min-width: 900px) { footer { padding-bottom: 24px; } }
+  /* Room booking notice (box + pop-up before the booking site) */
+  .notice { background: var(--card); border: 2px solid #9fd3d4; border-radius: var(--radius); overflow: hidden; margin: 12px 0; box-shadow: 0 4px 14px rgba(11,58,107,.10); }
+  .notice-h { background: linear-gradient(135deg, var(--navy), var(--teal)); color: #fff; text-align: center; padding: 16px 14px; }
+  .notice-h h2 { font-size: 19px; color: #fff; }
+  .notice-h p { margin: 4px 0 0; font-size: 13.5px; opacity: .9; }
+  .notice ol { list-style: none; margin: 0; padding: 4px 16px; }
+  .notice li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px dashed #c6e3e4; }
+  .notice li:last-child { border-bottom: 0; }
+  .notice li .num { background: var(--navy); margin-top: 2px; }
+  .notice li b.t { display: block; color: var(--navy); font-size: 16.5px; margin-bottom: 2px; }
+  .notice li p { margin: 0; }
+  .modal { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center;
+    padding: 16px; background: rgba(11,30,55,.6); }
+  .modal-card { width: 100%; max-width: 520px; max-height: calc(100dvh - 32px); overflow-y: auto; border-radius: var(--radius); }
+  .modal-card .notice { margin: 0; border-radius: var(--radius) var(--radius) 0 0; border-bottom: 0; box-shadow: none; }
+  .modal-actions { position: sticky; bottom: 0; display: grid; gap: 8px; padding: 12px 16px 16px; background: var(--card);
+    border: 2px solid #9fd3d4; border-top: 1px solid var(--line); border-radius: 0 0 var(--radius) var(--radius); }
+  .modal-actions .btn { max-width: none; }
+  .modal-actions .close { font: inherit; font-weight: 600; min-height: 44px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--navy); cursor: pointer; }
+  body.modal-open { overflow: hidden; }
   [hidden] { display: none !important; }
 </style>
 </head>
@@ -302,9 +323,13 @@
       <a class="btn alt" href="tel:+919943911030">📞 <span data-t="contactBtn"></span></a>
     </section>
 
+    <!-- Room booking notice -->
+    <section class="notice" id="notice"></section>
+
     <!-- Tariff -->
     <section class="sec" id="tariff">
       <h2 data-t="tariffTitle"></h2>
+      <div class="callout" data-t="tariffIncl"></div>
       <div class="tariff">
         <table class="tbl">
           <thead><tr><th data-t="occHead"></th><th data-t="occ2"></th><th data-t="occ3"></th><th data-t="occ4"></th></tr></thead>
@@ -325,6 +350,17 @@
     <a href="mailto:krishnakudumbamcrt@gmail.com">krishnakudumbamcrt@gmail.com</a> ·
     <a href="https://www.krishnakudumbam.in" target="_blank" rel="noopener">krishnakudumbam.in</a>
   </footer>
+
+  <!-- Shown before opening the booking site -->
+  <div class="modal" id="bookModal" role="dialog" aria-modal="true" hidden>
+    <div class="modal-card">
+      <section class="notice" id="noticeModal"></section>
+      <div class="modal-actions">
+        <a class="btn" id="goBook" target="_blank" rel="noopener"><span data-t="goBook"></span> ↗</a>
+        <button class="close" type="button" id="closeBook" data-t="close"></button>
+      </div>
+    </div>
+  </div>
 
   <div class="bar">
     <a class="b-home" href="#home">☰ <span data-t="mainMenu"></span></a>
@@ -426,15 +462,29 @@ const T = {
     contactBtn: "Contact 99439 11030",
     tariffTitle: "Tariff (per person)",
     occHead: "", occ2: "2 per room", occ3: "3 per room", occ4: "4 per room",
-    ac: "AC", nonAc: "Non-AC",
+    ac: "AC<small>per person</small>", nonAc: "Non-AC<small>per person</small>",
+    tariffIncl: "The rates are for <b>accommodation for 5 days</b>, including <b>food</b> and <b>pick-up / drop between Solapur and Pandharpur</b> (if applicable).",
     tariffNote: "Approximate. The Trust will confirm the final amount.",
+    notice: {
+      title: "Room Booking – Important Notice",
+      sub: "For the attention of all devotees",
+      items: [
+        ["Room facilities", "In each room, <b>two people can stay on the bed</b> and <b>two more on the floor with extra bedding</b>."],
+        ["Book together as one group", "To share a room and reduce the cost, make <b>one booking for your group of 3 or 4 people</b>. <b>We will not combine people who booked separately into a group.</b>"],
+        ["Larger rooms", "A few rooms with <b>3 beds</b> and <b>4 beds</b> are also available, in limited numbers."],
+        ["Tariff details", "Tariffs for <b>AC / Non-AC</b> rooms, based on the number of occupants, are shown <b>on the booking page</b>."],
+      ],
+      // Item 4 as shown in the box on this page, where the tariff table follows directly.
+      tariffHere: "Tariffs for <b>AC / Non-AC</b> rooms, based on the number of occupants, are given in the <b>tariff table below</b>.",
+    },
+    goBook: "I have read this – continue to booking", close: "Close",
   },
 
   ta: {
     switchTo: "English",
     trustShort: "க்ருஷ்ண குடும்பம் டிரஸ்ட்",
     melaShort: "பண்டரிபுரம் மேளா 2027",
-    title: "பண்டரிபுரம் நாம சங்கீர்த்தன மேளா",
+    title: "பண்டரிபுரம் நாம ஸங்கீர்த்தன மேளா",
     subtitle: "பக்தர்களுக்கான வழிகாட்டுதல்கள்",
     readCarefully: "வழிகாட்டுதல்களைக் கவனமாகப் படிக்கவும்.",
     dates: [
@@ -509,8 +559,21 @@ const T = {
     contactBtn: "தொடர்புக்கு 99439 11030",
     tariffTitle: "கட்டண அட்டை (ஒருவருக்கு)",
     occHead: "ஒரு அறையில்", occ2: "2 பேர்", occ3: "3 பேர்", occ4: "4 பேர்",
-    ac: "AC அறை", nonAc: "Non-AC அறை",
+    ac: "AC அறை<small>ஒருவருக்கு</small>", nonAc: "Non-AC அறை<small>ஒருவருக்கு</small>",
+    tariffIncl: "இந்தக் கட்டணம் <b>5 நாட்கள் தங்குமிடம்</b>, <b>உணவு (ப்ரஸாதம்)</b> மற்றும் <b>சோலாப்பூர்–பண்டரிபுரம் இடையே பிக்-அப் / டிராப்</b> (பொருந்தினால்) ஆகியவற்றை உள்ளடக்கியது.",
     tariffNote: "தோராயமானது. இறுதித் தொகையை டிரஸ்ட் உறுதி செய்யும்.",
+    notice: {
+      title: "தங்கும் அறை முன்பதிவு<br>முக்கிய அறிவிப்பு",
+      sub: "அனைத்து பக்தர்களின் கவனத்திற்கு",
+      items: [
+        ["அறை வசதி", "ஒவ்வொரு அறையிலும் <b>இருவர் கட்டிலிலும்</b>, மேலும் <b>இருவர் கூடுதல் படுக்கையுடன் (Extra bedding) தரையிலும்</b> தங்கலாம்."],
+        ["குழுவாக ஒரே முன்பதிவு", "ஒரே அறையைப் பகிர்ந்து செலவைக் குறைக்க, <b>3 அல்லது 4 பேர் கொண்ட உங்கள் குழுவுக்கு ஒரே முன்பதிவாகச்</b> செய்யவும். <b>தனித்தனியாக முன்பதிவு செய்தவர்களை நாங்கள் ஒன்றிணைத்துக் குழுவாக்க மாட்டோம்.</b>"],
+        ["பெரிய அறைகள்", "<b>3 கட்டில்கள்</b> மற்றும் <b>4 கட்டில்கள்</b> கொண்ட சில அறைகளும் குறைந்த எண்ணிக்கையில் உள்ளன."],
+        ["கட்டண விவரம்", "தங்கும் நபர்களின் எண்ணிக்கைக்கு ஏற்ப <b>AC / Non-AC</b> அறைகளுக்கான கட்டணங்கள் <b>முன்பதிவுப் பக்கத்தில்</b> உள்ளன."],
+      ],
+      tariffHere: "தங்கும் நபர்களின் எண்ணிக்கைக்கு ஏற்ப <b>AC / Non-AC</b> அறைகளுக்கான கட்டணங்கள் <b>கீழே உள்ள கட்டண அட்டையில்</b> உள்ளன.",
+    },
+    goBook: "முன்பதிவுக்குச் செல்லவும்", close: "மூடு",
   },
 };
 
@@ -564,7 +627,29 @@ function render(lang) {
 
   $("#bookBtn").href = BOOKING_URL;
   $("#barBook").href = BOOKING_URL;
+  $("#goBook").href = BOOKING_URL;
+
+  const N = L.notice;
+  const notice = (items) => `<div class="notice-h"><h2>${N.title}</h2><p>${N.sub}</p></div><ol>${
+    items.map(([h, body], i) => `<li><span class="num">${i + 1}</span><div><b class="t">${h}</b><p>${body}</p></div></li>`).join("")
+  }</ol>`;
+  $("#notice").innerHTML = notice(N.items.map(([h, body], i) => [h, i === 3 ? N.tariffHere : body]));
+  $("#noticeModal").innerHTML = notice(N.items);
 }
+
+// Every link to the booking site first shows the room booking notice.
+function openBooking(open) {
+  $("#bookModal").hidden = !open;
+  document.body.classList.toggle("modal-open", open);
+}
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("a");
+  if (a && a.href === BOOKING_URL && a.id !== "goBook") { e.preventDefault(); openBooking(true); }
+});
+$("#goBook").addEventListener("click", () => openBooking(false));
+$("#closeBook").addEventListener("click", () => openBooking(false));
+$("#bookModal").addEventListener("click", (e) => { if (e.target.id === "bookModal") openBooking(false); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") openBooking(false); });
 
 function choose(lang) {
   try { localStorage.setItem("melaLang", lang); } catch (e) {}
