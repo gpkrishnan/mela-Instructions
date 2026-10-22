@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b3a6b">
+<title>Mela Train Timings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0b3a6b;
+    --teal: #0f7c80;
+    --teal-soft: #e2f3f3;
+    --accent: #1e6fd9;
+    --accent-soft: #e8f1fc;
+    --red: #c0392b;
+    --red-soft: #fdecea;
+    --ink: #22262e;
+    --muted: #5f6672;
+    --line: #dfe3e8;
+    --bg: #f2f6f9;
+    --card: #ffffff;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; font-family: "Noto Sans", "Noto Sans Tamil", system-ui, sans-serif; font-size: 16px; line-height: 1.5; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+  body.ta { font-family: "Noto Sans Tamil", "Noto Sans", system-ui, sans-serif; font-size: 15.5px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+  header { position: sticky; top: 0; z-index: 10; background: var(--navy); color: #fff; padding-top: env(safe-area-inset-top); }
+  header .wrap { display: flex; align-items: center; gap: 10px; min-height: 56px; }
+  .back { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; color: #fff; text-decoration: none; font-size: 24px; background: rgba(255,255,255,.12); flex-shrink: 0; }
+  header h1 { font-size: 16px; margin: 0; flex: 1; line-height: 1.3; }
+  .switch { flex-shrink: 0; font: inherit; font-size: 14px; font-weight: 600; color: #fff; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 8px 14px; min-height: 40px; cursor: pointer; }
+
+
+  .info { background: var(--card); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(11,58,107,.08); }
+  .info .win { font-size: 15px; margin: 0 0 8px; }
+  .info ul { margin: 0; padding-left: 20px; font-size: 14px; color: var(--muted); }
+  .info li { margin: 4px 0; }
+  .info .irctc { display: inline-flex; align-items: center; margin-top: 10px; min-height: 40px; padding: 8px 14px; border-radius: 10px; background: var(--navy); color: #fff; font-weight: 700; font-size: 14px; text-decoration: none; }
+
+  /* Route menu */
+  .rmenu-h { font-size: 17px; color: var(--navy); margin: 18px 0 10px; }
+  .rmenu { display: grid; gap: 10px; margin-bottom: 16px; }
+  @media (min-width: 640px) { .rmenu { grid-template-columns: 1fr 1fr; } }
+  .rt {
+    display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 10px;
+    min-height: 68px; padding: 12px 14px; text-decoration: none; color: var(--navy);
+    background: var(--card); border-radius: var(--radius); border-left: 4px solid var(--teal);
+    box-shadow: 0 4px 14px rgba(11,58,107,.08);
+  }
+  .rt:active { transform: scale(.98); }
+  .rt b { font-size: 17px; line-height: 1.3; }
+  .rt small { grid-column: 1; font-size: 13px; color: var(--muted); line-height: 1.35; }
+  .rt .go { grid-column: 2; grid-row: 1 / 3; font-size: 26px; color: var(--muted); }
+  .rt.all { border-left-color: var(--accent); background: var(--accent-soft); }
+  .rt .pk { display: block; color: var(--teal); font-weight: 600; }
+
+  .route-h { font-size: 17px; color: var(--navy); margin: 18px 0 6px; display: flex; align-items: center; gap: 8px; }
+  .route-h::before { content: ""; width: 6px; height: 20px; border-radius: 3px; background: var(--accent); }
+  .route-intro { margin: 0 0 10px; color: var(--muted); font-size: 14.5px; }
+  .route-notes { margin: 4px 0 8px; padding: 10px 12px 10px 30px; background: var(--accent-soft); border-radius: 10px; font-size: 14px; }
+  .route-notes li { margin: 4px 0; }
+
+  .train { background: var(--card); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(11,58,107,.08); border: 2px solid transparent; }
+  .train.best { border-color: #6cc3c5; }
+  .train .top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .train .no { font-weight: 700; color: var(--navy); font-size: 18px; }
+  .train .name { color: var(--muted); font-size: 14px; line-height: 1.35; }
+  .star { display: inline-block; margin-top: 4px; font-size: 12px; font-weight: 700; color: #0f7c80; }
+  .badge { flex-shrink: 0; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+  .badge.yes { background: var(--teal-soft); color: var(--teal); }
+  .badge.no { background: #f0f1f3; color: var(--muted); }
+
+  .route { display: grid; grid-template-columns: 1fr auto 1fr; align-items: start; gap: 8px; margin-top: 12px; padding: 10px 12px; background: var(--bg); border-radius: 10px; }
+  .route .st { font-weight: 700; font-size: 14.5px; line-height: 1.3; }
+  .route .tm { font-size: 15px; color: var(--navy); margin-top: 3px; font-weight: 600; }
+  .route .end { text-align: right; }
+  .route .arrow { color: var(--teal); font-size: 20px; padding-top: 6px; }
+
+  .legs { list-style: none; margin: 10px 0 0; padding: 0; counter-reset: leg; }
+  .legs li { position: relative; padding-left: 30px; margin: 6px 0; font-size: 14px; }
+  .legs li::before { counter-increment: leg; content: counter(leg); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--navy); color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+  .det { margin: 10px 0 0; display: grid; gap: 6px; font-size: 14px; }
+  .det div { display: grid; grid-template-columns: 7.5em 1fr; gap: 8px; }
+  body.ta .det div { grid-template-columns: 9.5em 1fr; }
+  .det dt { color: var(--muted); }
+  .det dd { margin: 0; }
+  .det .warn { color: var(--red); font-weight: 600; }
+  .det small { display: block; color: var(--muted); }
+  @media (max-width: 360px) { .det div, body.ta .det div { grid-template-columns: 1fr; gap: 0; } }
+
+  .pnote { margin-top: 10px; padding: 8px 10px; border-radius: 8px; background: var(--teal-soft); color: var(--teal); font-size: 13.5px; font-weight: 600; }
+
+  .empty { color: var(--muted); padding: 14px; border: 1px dashed var(--line); border-radius: 12px; background: var(--card); font-size: 14px; }
+  .foot { text-align: center; margin: 22px 0 40px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 20px; border-radius: 12px; text-decoration: none; font-weight: 700; background: var(--teal); color: #fff; }
+  .foot p { color: var(--muted); font-size: 13px; }
+  .foot p a { color: var(--teal); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="back" id="back" aria-label="Back">‹</a>
+    <h1 id="title"></h1>
+    <button class="switch" id="switchLang"></button>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="list"></div>
+  <section class="info" id="info"></section>
+  <div class="foot">
+    <a class="btn" id="home"></a>
+    <p><a href="tel:+919943911030">+91 99439 11030</a> · Krishna Kudumbam Charitable &amp; Religious Trust</p>
+  </div>
+</main>
+
+<script src="trains-data.js"></script>
+<script>
+const T = {
+  en: {
+    switchTo: "தமிழ்",
+    onward: "Onward Trains", ret: "Return Trains",
+    all: "All routes", route: "route",
+    chooseRoute: "Choose your route", allSub: "Every route on one page",
+    count: (n) => n === 1 ? "1 train" : `${n} trains`, noTrain: "No direct train – see notes",
+    pickAny: (d, n) => `🚌 ${d === "onward" ? "Pick-up" : "Drop"} available for ${n} train${n === 1 ? "" : "s"}`,
+    backRoutes: "‹ Back to routes",
+    via: "Via (TN)", change: "Change / wait", booking: "Booking opens", starts: "Train starts",
+    pickup: { onward: ["🚌 Pick-up", "No pick-up"], return: ["🚌 Drop", "No drop"] },
+    best: "★ Recommended",
+    none: "No direct train on this route — see the notes below.",
+    irctc: "Book on IRCTC ↗",
+    home: "‹ Back to menu",
+  },
+  ta: {
+    switchTo: "English",
+    onward: "போகும் ரயில்கள்", ret: "திரும்பும் ரயில்கள்",
+    all: "அனைத்து வழித்தடங்கள்", route: "வழித்தடம்",
+    chooseRoute: "உங்கள் வழித்தடத்தைத் தேர்ந்தெடுக்கவும்", allSub: "அனைத்து வழித்தடங்களும் ஒரே பக்கத்தில்",
+    count: (n) => `${n} ரயில்${n === 1 ? "" : "கள்"}`, noTrain: "நேரடி ரயில் இல்லை – குறிப்பைப் பார்க்கவும்",
+    pickAny: (d, n) => `🚌 ${n} ரயில${n === 1 ? "ுக்கு" : "்களுக்கு"} ${d === "onward" ? "பிக்-அப்" : "டிராப்"} உண்டு`,
+    backRoutes: "‹ வழித்தடங்களுக்குத் திரும்ப",
+    via: "வழி (தமிழ்நாடு)", change: "மாற்றம் / காத்திருப்பு", booking: "முன்பதிவு தொடக்கம்", starts: "ரயில் தொடக்கம்",
+    pickup: { onward: ["🚌 பிக்-அப் உண்டு", "பிக்-அப் இல்லை"], return: ["🚌 டிராப் உண்டு", "டிராப் இல்லை"] },
+    best: "★ பரிந்துரை",
+    none: "இந்த வழித்தடத்தில் நேரடி ரயில் இல்லை — கீழே உள்ள குறிப்புகளைப் பார்க்கவும்.",
+    irctc: "IRCTC-யில் முன்பதிவு ↗",
+    home: "‹ முகப்புக்குத் திரும்ப",
+  },
+};
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const params = new URLSearchParams(location.search);
+let lang = params.get("lang");
+if (!T[lang]) { try { lang = localStorage.getItem("melaLang"); } catch (e) {} }
+if (!T[lang]) lang = "en";
+const dir = params.get("dir") === "return" ? "return" : "onward";
+// Selected route: null = route menu, "all" = every route, or a route index.
+function readRoute() {
+  const r = new URLSearchParams(location.search).get("r");
+  return r === "all" ? "all" : r !== null && /^\d+$/.test(r) ? Number(r) : null;
+}
+let city = readRoute();
+const pageUrl = (d, r) => `?dir=${d}&lang=${lang}${r === null ? "" : `&r=${r}`}`;
+
+// Text from the data file: plain string or {en, ta}. Notes may contain <b>.
+function tx(v) {
+  if (v == null) return "";
+  if (typeof v === "object") return v[lang] ?? v.en;
+  return lang === "ta" ? String(v).replace(/\bFeb\b/g, "பிப்.").replace(/\bDec\b/g, "டிச.") : String(v);
+}
+const txe = (v) => esc(tx(v));
+
+function card(t, L) {
+  const [yes, no] = L.pickup[dir];
+  const row = (label, val, cls = "") => val ? `<div><dt>${label}</dt><dd class="${cls}">${val}</dd></div>` : "";
+  return `<article class="train${t.best ? " best" : ""}">
+    <div class="top">
+      <div>
+        <div class="no">${txe(t.no)}</div>
+        <div class="name">${txe(t.name)}</div>
+        ${t.best ? `<span class="star">${L.best}</span>` : ""}
+      </div>
+      <span class="badge ${t.pickup ? "yes" : "no"}">${t.pickup ? yes : no}</span>
+    </div>
+    <div class="route">
+      <div><div class="st">${txe(t.from)}</div><div class="tm">${txe(t.dep)}</div></div>
+      <div class="arrow">→</div>
+      <div class="end"><div class="st">${txe(t.to)}</div><div class="tm">${txe(t.arr)}</div></div>
+    </div>
+    ${t.legs ? `<ol class="legs">${t.legs.map((l) => `<li>${txe(l)}</li>`).join("")}</ol>` : ""}
+    <dl class="det">
+      ${row(L.via, txe(t.via))}
+      ${row(L.change, txe(t.change), t.warn ? "warn" : "")}
+      ${row(L.booking, `<b>${txe(t.booking)}</b>${t.starts ? `<small>${L.starts}: ${txe(t.starts)}</small>` : ""}`)}
+    </dl>
+    ${t.pickup && t.pickupNote ? `<div class="pnote">🚌 ${txe(t.pickupNote)}</div>` : ""}
+  </article>`;
+}
+
+function render() {
+  const L = T[lang];
+  const D = (window.MELA_TRAINS || {})[dir] || { routes: [] };
+  document.documentElement.lang = lang;
+  document.body.classList.toggle("ta", lang === "ta");
+  const title = dir === "onward" ? L.onward : L.ret;
+  document.title = `${title} – Pandharpur Mela 2027`;
+  $("#title").textContent = title;
+  $("#switchLang").textContent = L.switchTo;
+  const routes = D.routes || [];
+  if (typeof city === "number" && !routes[city]) city = null;
+  const menu = city === null;
+  const homeUrl = `index.html?lang=${lang}`;
+  $("#back").href = menu ? homeUrl : pageUrl(dir, null);
+  $("#home").href = menu ? homeUrl : pageUrl(dir, null);
+  $("#home").textContent = menu ? L.home : L.backRoutes;
+
+  // Booking window and general notes, below the route menu / trains.
+  $("#info").innerHTML =
+    `<p class="win">${tx(D.window)}</p>` +
+    (D.notes ? `<ul>${D.notes.map((n) => `<li>${tx(n)}</li>`).join("")}</ul>` : "") +
+    `<a class="irctc" href="https://www.irctc.co.in" target="_blank" rel="noopener">${L.irctc}</a>`;
+
+  if (menu) {
+    const tile = (href, title, sub, cls = "") =>
+      `<a class="rt${cls}" href="${href}" data-r><b>${title}</b><small>${sub}</small><span class="go">›</span></a>`;
+    $("#list").innerHTML = `<h2 class="rmenu-h">${L.chooseRoute}</h2><nav class="rmenu">` +
+      routes.map((r, i) => tile(pageUrl(dir, i), `${txe(r.city)} ${L.route}`,
+        (r.trains.length ? L.count(r.trains.length) : L.noTrain) +
+        ((n) => n ? `<span class="pk">${L.pickAny(dir, n)}</span>` : "")(r.trains.filter((t) => t.pickup).length))).join("") +
+      tile(pageUrl(dir, "all"), L.all, L.allSub, " all") + `</nav>`;
+    return;
+  }
+
+  $("#list").innerHTML = routes.map((r, i) => (city !== "all" && city !== i) ? "" : `
+    <section>
+      <h2 class="route-h">${txe(r.city)} ${L.route}</h2>
+      ${r.intro ? `<p class="route-intro">${tx(r.intro)}</p>` : ""}
+      ${r.trains.length ? r.trains.map((t) => card(t, L)).join("") : (r.intro ? "" : `<div class="empty">${L.none}</div>`)}
+      ${r.notes ? `<ul class="route-notes">${r.notes.map((n) => `<li>${tx(n)}</li>`).join("")}</ul>` : ""}
+    </section>`).join("");
+}
+
+// Route menu ↔ route page without reloading; the phone's back button returns to the menu.
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("a[data-r], #home, #back");
+  if (!a || !a.getAttribute("href").startsWith("?")) return;
+  e.preventDefault();
+  history.pushState(null, "", a.getAttribute("href"));
+  city = readRoute();
+  render();
+  window.scrollTo(0, 0);
+});
+window.addEventListener("popstate", () => { city = readRoute(); render(); window.scrollTo(0, 0); });
+$("#switchLang").addEventListener("click", () => {
+  lang = lang === "ta" ? "en" : "ta";
+  try { localStorage.setItem("melaLang", lang); } catch (e) {}
+  history.replaceState(null, "", pageUrl(dir, city));
+  render();
+});
+render();
+</script>
+<script src="music.js"></script>
+</body>
+</html>

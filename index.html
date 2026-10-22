@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b3a6b">
+<title>Pandharpur Nama Sankeerthana Mela 2027</title>
+<meta name="description" content="Devotee instructions for the Pandharpur Nama Sankeerthana Mela, 3–7 February 2027 – Krishna Kudumbam Charitable & Religious Trust.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0b3a6b;
+    --teal: #0f7c80;
+    --teal-soft: #e2f3f3;
+    --accent: #1e6fd9;
+    --accent-soft: #e8f1fc;
+    --ink: #22262e;
+    --muted: #5f6672;
+    --line: #dfe3e8;
+    --bg: #f2f6f9;
+    --card: #ffffff;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Noto Sans", "Noto Sans Tamil", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+    overflow-x: hidden;
+  }
+  body.ta { font-family: "Noto Sans Tamil", "Noto Sans", system-ui, sans-serif; font-size: 15.5px; line-height: 1.75; }
+  a { color: var(--teal); }
+  h1, h2, h3 { line-height: 1.3; margin: 0; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+
+  /* ---------- Language chooser ---------- */
+  #chooser {
+    min-height: 100vh; min-height: 100dvh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px 16px;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--teal) 100%);
+    color: #fff; text-align: center;
+  }
+  #chooser .box { width: 100%; max-width: 420px; }
+  #chooser .logo { width: 84px; height: 84px; border-radius: 50%; background: #fff; margin: 0 auto 14px; display: block; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+  #chooser .trust { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; opacity: .85; }
+  #chooser h1 { font-size: clamp(24px, 6.5vw, 32px); margin: 10px 0 4px; }
+  #chooser .ta-title { font-family: "Noto Sans Tamil", sans-serif; font-size: clamp(18px, 5vw, 22px); opacity: .95; }
+  #chooser .dates { display: inline-block; margin: 16px 0 28px; padding: 6px 16px; border-radius: 999px; background: rgba(255,255,255,.15); font-weight: 600; }
+  #chooser p { margin: 0 0 14px; opacity: .9; }
+  .lang-btn {
+    display: block; width: 100%;
+    margin: 0 0 12px; padding: 16px;
+    font: inherit; font-size: 20px; font-weight: 700;
+    color: var(--navy); background: #fff;
+    border: 0; border-radius: var(--radius);
+    cursor: pointer; min-height: 56px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.18);
+    transition: transform .12s ease;
+  }
+  .lang-btn:active { transform: scale(.98); }
+  .lang-btn small { display: block; font-size: 13px; font-weight: 400; color: var(--muted); }
+  .lang-btn.ta-btn { font-family: "Noto Sans Tamil", sans-serif; }
+
+  /* ---------- Header ---------- */
+  header.top {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--navy); color: #fff;
+    padding-top: env(safe-area-inset-top);
+  }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 60px; padding-top: 6px; padding-bottom: 6px; }
+  header.top .brand { font-weight: 700; font-size: 15px; line-height: 1.25; min-width: 0; text-align: center; }
+  header.top .brand span { display: block; font-weight: 400; font-size: 12px; opacity: .8; }
+  header.top .brand b, header.top .brand span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  header.top .brand b { display: block; }
+  .hlogo, .hphoto { flex-shrink: 0; width: 46px; height: 46px; border-radius: 50%; background: #fff; object-fit: cover; }
+  .hlogo { display: block; }
+  .hlogo img { width: 100%; height: 100%; border-radius: 50%; display: block; }
+  .hphoto { border: 2px solid rgba(255,255,255,.7); object-position: center top; }
+  @media (max-width: 360px) { .hlogo, .hphoto { width: 40px; height: 40px; } header.top .brand { font-size: 14px; } }
+  .switch {
+    flex-shrink: 0;
+    font: inherit; font-size: 14px; font-weight: 600;
+    color: #fff; background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.35); border-radius: 999px;
+    padding: 8px 14px; min-height: 40px; cursor: pointer;
+  }
+
+  .hero { background: linear-gradient(160deg, var(--navy) 0%, var(--teal) 100%); color: #fff; padding: 28px 0 36px; text-align: center; }
+  .hero .trust { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .85; }
+  .hero h1 { font-size: clamp(22px, 6vw, 34px); margin: 8px 0 4px; }
+  .hero .sub { opacity: .92; }
+  .hero .pill { display: inline-block; margin-top: 14px; padding: 6px 16px; border-radius: 999px; background: rgba(255,255,255,.16); font-weight: 600; }
+  .hero .switch { display: block; margin: 12px auto 0; font-size: 13px; padding: 6px 14px; min-height: 36px; }
+  @media (max-width: 480px) { .hero { padding: 20px 0 34px; } .hero .trust { font-size: 11px; } }
+
+  header.top .brand { flex: 1; }
+  .page-title { font-size: 22px; color: var(--navy); margin: 18px 0 0; }
+
+  /* Home menu */
+  .menu { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: -22px 0 0; position: relative; }
+  @media (min-width: 720px) { .menu { grid-template-columns: repeat(4, 1fr); } }
+  .tile {
+    display: flex; flex-direction: column; gap: 6px; min-height: 140px; padding: 16px 14px;
+    background: var(--card); border-radius: var(--radius); text-decoration: none; color: var(--navy);
+    box-shadow: 0 6px 18px rgba(11,58,107,.10); border-top: 4px solid var(--teal);
+    transition: transform .12s ease;
+  }
+  .tile:active { transform: scale(.98); }
+  .tile .ti { font-size: 30px; line-height: 1; }
+  .tile b { font-size: 16.5px; line-height: 1.3; }
+  .tile small { font-size: 13px; color: var(--muted); line-height: 1.35; margin-top: auto; }
+  .tile.book { border-top-color: var(--accent); background: var(--accent-soft); }
+  .tile b, .tile small { overflow-wrap: anywhere; }
+  @media (max-width: 559px) {
+    .menu { grid-template-columns: 1fr; gap: 10px; }
+    .tile {
+      display: grid; grid-template-columns: 44px 1fr auto; grid-template-rows: auto auto;
+      column-gap: 12px; row-gap: 2px; align-items: center;
+      min-height: 76px; padding: 12px 14px;
+      border-top: 0; border-left: 4px solid var(--teal);
+    }
+    .tile.book { border-left-color: var(--accent); }
+    .tile .ti { grid-row: 1 / 3; font-size: 28px; text-align: center; }
+    .tile b { grid-column: 2; font-size: 16px; }
+    .tile small { grid-column: 2; margin-top: 0; }
+    .tile::after { content: "›"; grid-column: 3; grid-row: 1 / 3; font-size: 26px; color: var(--muted); }
+  }
+
+  /* Key dates */
+  .dates-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+    margin: 16px 0 24px;
+  }
+  .date-card { background: var(--card); border-radius: var(--radius); padding: 12px 14px; box-shadow: 0 4px 14px rgba(11,58,107,.08); }
+  .date-card .lbl { font-size: 12.5px; color: var(--muted); line-height: 1.35; }
+  .date-card .val { font-weight: 700; color: var(--navy); margin-top: 4px; line-height: 1.35; overflow-wrap: anywhere; }
+  @media (min-width: 720px) { .dates-grid { grid-template-columns: repeat(4, 1fr); } }
+
+
+  /* Sections */
+  main { padding-bottom: 96px; }
+  .note { margin: 18px 0 6px; text-align: center; color: var(--muted); font-size: 14px; }
+  .sec { background: var(--card); border-radius: var(--radius); padding: 18px 16px; margin: 12px 0; box-shadow: 0 1px 3px rgba(11,58,107,.06); scroll-margin-top: 72px; }
+  .sec h2 { display: flex; align-items: flex-start; gap: 10px; font-size: 18px; color: var(--navy); margin-bottom: 10px; }
+  .num { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: var(--teal); color: #fff; font-size: 13px; font-weight: 700; margin-top: 1px; }
+  .sec p { margin: 0 0 10px; }
+  .sec p:last-child { margin-bottom: 0; }
+  .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 8px; padding: 10px 12px; margin: 10px 0; }
+  @media (min-width: 720px) { .sec { padding: 22px 26px; } .sec h2 { font-size: 20px; } }
+
+  /* Tables → stacked cards on phones */
+  .tbl { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .tbl th, .tbl td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .tbl th { background: var(--teal-soft); color: var(--navy); font-size: 13.5px; }
+  @media (max-width: 640px) {
+    .tbl.stack thead { display: none; }
+    .tbl.stack tr { display: block; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 10px; padding: 6px 0; background: #fff; }
+    .tbl.stack td { display: flex; justify-content: space-between; gap: 12px; border: 0; padding: 6px 14px; text-align: right; }
+    .tbl.stack td::before { content: attr(data-label); font-weight: 600; color: var(--muted); text-align: left; flex-shrink: 0; max-width: 50%; }
+    .tbl.stack td:first-child { font-weight: 700; color: var(--navy); }
+  }
+  .tariff { overflow-x: auto; margin: 4px -4px 10px; }
+  .tariff .tbl { font-size: 14px; table-layout: fixed; }
+  .tariff .tbl th, .tariff .tbl td { text-align: center; vertical-align: middle; padding: 10px 4px; }
+  .tariff .tbl th { font-size: 12.5px; line-height: 1.35; }
+  .tariff .tbl th:first-child { width: 36%; }
+  .tariff .tbl th:first-child, .tariff .tbl td:first-child { text-align: left; font-weight: 700; color: var(--navy); }
+  .tariff .tbl td { white-space: nowrap; font-size: 13.5px; }
+  .tariff .tbl td:first-child { white-space: normal; overflow-wrap: anywhere; font-size: 13.5px; }
+  .tariff-note { font-size: 13.5px; color: var(--muted); }
+  .cancel .tbl td:first-child { font-weight: 700; color: var(--navy); width: 38%; }
+
+  .badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; white-space: nowrap; }
+  .badge.yes { background: var(--teal-soft); color: var(--teal); }
+  .badge.no { background: #f0f1f3; color: var(--muted); }
+  .train-links { display: grid; gap: 10px; margin: 12px 0; }
+  @media (min-width: 640px) { .train-links { grid-template-columns: 1fr 1fr; } }
+  .tl {
+    display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 12px 14px;
+    text-decoration: none; color: var(--navy); background: var(--teal-soft);
+    border: 1px solid #bfe1e2; border-radius: 12px;
+  }
+  .tl .ic { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--teal); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .tl b { display: block; line-height: 1.3; }
+  .tl small { display: block; color: var(--muted); font-size: 13px; }
+  .tl .go { margin-left: auto; font-size: 26px; color: var(--teal); }
+  .empty { text-align: center; color: var(--muted); padding: 18px; border: 1px dashed var(--line); border-radius: 12px; }
+
+  /* Bank */
+  .bank dl { display: grid; grid-template-columns: 1fr; gap: 2px 16px; margin: 0; }
+  .bank dt { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .bank dd { margin: 0; font-weight: 600; word-break: break-word; }
+  @media (min-width: 640px) { .bank dl { grid-template-columns: 160px 1fr; } .bank dt { margin-top: 0; padding: 6px 0; } .bank dd { padding: 6px 0; } }
+  .copy { font: inherit; font-size: 12px; margin-left: 8px; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--line); background: #fff; cursor: pointer; color: var(--teal); }
+
+  .mantra { text-align: center; background: linear-gradient(160deg, var(--navy), var(--teal)); color: #fff; }
+  .mantra h2 { justify-content: center; color: #fff; }
+  .mantra .m { font-weight: 700; font-size: 17px; margin: 10px 0; }
+
+  /* Booking CTA */
+  .cta { text-align: center; background: var(--accent-soft); border: 2px solid var(--accent); }
+  .cta h2 { justify-content: center; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; max-width: 380px; min-height: 52px; padding: 14px 20px;
+    font-weight: 700; font-size: 17px; text-decoration: none;
+    color: #fff; background: var(--accent); border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(30,111,217,.30);
+  }
+  .btn.alt { background: var(--teal); box-shadow: none; margin-top: 10px; }
+
+  /* Sticky bottom bar (mobile) */
+  .bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+    display: flex; gap: 8px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255,255,255,.96); border-top: 1px solid var(--line);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  }
+  .bar a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 48px; border-radius: 12px; font-weight: 700; font-size: 15px; text-decoration: none; }
+  .bar .b-book { background: var(--accent); color: #fff; }
+  .bar .b-home { background: var(--teal-soft); color: var(--teal); }
+  .bar a { padding: 4px 10px; text-align: center; line-height: 1.25; }
+  @media (max-width: 360px) { .bar { gap: 6px; padding-left: 10px; padding-right: 10px; } .bar a { font-size: 14px; } }
+  @media (min-width: 900px) { .bar { display: none; } main { padding-bottom: 24px; } }
+
+  footer { text-align: center; font-size: 13px; color: var(--muted); padding: 20px 16px 110px; }
+  @media (min-width: 900px) { footer { padding-bottom: 24px; } }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- ===== Language chooser ===== -->
+<section id="chooser" aria-label="Choose language">
+  <div class="box">
+    <img class="logo" src="logo.jpeg" alt="Krishna Kudumbam Trust logo">
+    <div class="trust">Krishna Kudumbam Charitable &amp; Religious Trust</div>
+    <h1>Pandharpur Nama Sankeerthana Mela</h1>
+    <div class="ta-title">பண்டரிபுரம் நாம சங்கீர்த்தன மேளா</div>
+    <div class="dates">3 – 7 February 2027</div>
+    <p>மொழியைத் தேர்ந்தெடுக்கவும் · Choose your language</p>
+    <button class="lang-btn ta-btn" data-lang="ta">தமிழ்<small>Tamil</small></button>
+    <button class="lang-btn" data-lang="en">English<small>ஆங்கிலம்</small></button>
+  </div>
+</section>
+
+<!-- ===== Content ===== -->
+<div id="site" hidden>
+  <header class="top">
+    <div class="wrap">
+      <a class="hlogo" href="#home" aria-label="Home"><img src="logo.jpeg" alt="Krishna Kudumbam Trust logo"></a>
+      <div class="brand"><span data-t="trustShort"></span><b data-t="melaShort"></b></div>
+      <img class="hphoto" src="sr.jpeg" alt="">
+    </div>
+  </header>
+
+  <!-- Home: 4-item menu -->
+  <div id="homeView">
+    <div class="hero">
+      <div class="wrap">
+        <div class="trust">Krishna Kudumbam Charitable &amp; Religious Trust</div>
+        <h1 data-t="title"></h1>
+        <div class="pill">3 – 7 February 2027</div>
+        <button class="switch" id="switchLang"></button>
+      </div>
+    </div>
+    <main class="wrap">
+      <nav class="menu" id="menu"></nav>
+      <div class="dates-grid" id="dates"></div>
+    </main>
+  </div>
+
+  <!-- Instructions -->
+  <main class="wrap" id="instrView" hidden>
+    <h1 class="page-title" data-t="subtitle"></h1>
+    <p class="note" data-t="readCarefully"></p>
+    <div id="sections"></div>
+
+    <!-- Train timings -->
+    <section class="sec" id="trains">
+      <h2><span class="num">🚆</span><span data-t="trainTitle"></span></h2>
+      <p data-t="trainIntro"></p>
+      <div class="train-links">
+        <a class="tl" id="lnkOnward"><span class="ic">➜</span><span><b data-t="onward"></b><small data-t="viewTimings"></small></span><span class="go">›</span></a>
+        <a class="tl" id="lnkReturn"><span class="ic">↩</span><span><b data-t="ret"></b><small data-t="viewTimings"></small></span><span class="go">›</span></a>
+      </div>
+      <div class="callout" data-t="trainNote"></div>
+    </section>
+
+    <!-- Booking CTA -->
+    <section class="sec cta" id="book">
+      <h2 data-t="bookTitle"></h2>
+      <p data-t="bookText"></p>
+      <a class="btn" id="bookBtn" target="_blank" rel="noopener"><span data-t="bookBtn"></span> ↗</a><br>
+      <a class="btn alt" href="tel:+919943911030">📞 <span data-t="contactBtn"></span></a>
+    </section>
+
+    <!-- Tariff -->
+    <section class="sec" id="tariff">
+      <h2 data-t="tariffTitle"></h2>
+      <div class="tariff">
+        <table class="tbl">
+          <thead><tr><th data-t="occHead"></th><th data-t="occ2"></th><th data-t="occ3"></th><th data-t="occ4"></th></tr></thead>
+          <tbody>
+            <tr><td data-t="ac"></td><td>₹12,300</td><td>₹10,500</td><td>₹9,600</td></tr>
+            <tr><td data-t="nonAc"></td><td>₹7,800</td><td>₹7,000</td><td>₹6,400</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tariff-note" data-t="tariffNote"></p>
+    </section>
+  </main>
+
+  <footer>
+    Krishna Kudumbam Charitable &amp; Religious Trust · REGD. No. 118/2022<br>
+    205, Sapthagirii Enclave, Thavasi Nagar, Koilmedu, Coimbatore – 641025<br>
+    <a href="tel:+919943911030">+91 99439 11030</a> ·
+    <a href="mailto:krishnakudumbamcrt@gmail.com">krishnakudumbamcrt@gmail.com</a> ·
+    <a href="https://www.krishnakudumbam.in" target="_blank" rel="noopener">krishnakudumbam.in</a>
+  </footer>
+
+  <div class="bar">
+    <a class="b-home" href="#home">☰ <span data-t="mainMenu"></span></a>
+    <a class="b-book" id="barBook" target="_blank" rel="noopener"><span data-t="bookShort"></span> ↗</a>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   SETTINGS — edit these
+   ===================================================================== */
+
+// Link to the website where registration / booking happens.
+const BOOKING_URL = "https://www.krishnakudumbam.in/melaregn/PAN/";
+
+
+// Train timings live in trains-data.js and are shown on trains.html.
+
+/* =====================================================================
+   CONTENT
+   ===================================================================== */
+const T = {
+  en: {
+    switchTo: "தமிழ்",
+    trustShort: "Krishna Kudumbam Trust",
+    melaShort: "Pandharpur Mela 2027",
+    title: "Pandharpur Nama Sankeerthana Mela",
+    subtitle: "Devotee Instructions",
+    readCarefully: "Please read these instructions carefully.",
+    dates: [
+      ["Train booking opens (Friday)", "4 Dec 2026, 8 AM"],
+      ["Registration closes", "31 Dec 2026"],
+      ["Mela begins", "3 Feb 2027, Evening"],
+      ["Concludes / check-out", "7 Feb 2027, Noon"],
+    ],
+    menu: [
+      ["📖", "Instructions", "Venue, stay, prasadam, travel & rules"],
+      ["🚆", "Onward Train Timings", "To Pandharpur · booking opens 4 Dec 2026"],
+      ["🏠", "Return Train Timings", "From Pandharpur · booking opens 9 Dec 2026"],
+      ["📝", "Accommodation Registration", "Last date for registration: 31 Dec 2026 ↗"],
+    ],
+    sections: [
+      ["Preamble", `<p>By the grace of Sri Krishna Chaitanya Mahaprabhu and the blessings of the Acharyas and Sri Sadgurunathal, our Trust will conduct a Nama Sankeerthana Mela for five days, from <b>Wednesday, 3 February 2027 to Sunday, 7 February 2027</b>, at Pandharpur in Maharashtra, the sacred kshetra of Sri Panduranga Vittal. We request devotees to take part in this Nama Vaibhavam and experience the grace of Sri Panduranga.</p>
+        <p>The arrangements for the Mela, in particular accommodation, prasadam and other facilities for devotees, are being made through the Trust by the Mela Committee (a volunteer team). Devotees must <b>register their participation with us in advance</b>. Please note that devotees must <b>book their own onward and return tickets</b>. The registration details and a few guidelines are set out below.</p>`],
+      ["Mela Venue and Timings", `<p>The venue is approximately 500 metres from the Vittal Temple. The Mela begins on the evening of <b>3 February 2027</b>. Daily programmes run from 6:00 AM to 10:00 PM. The Mela concludes at 12:00 noon on <b>7 February 2027</b>.</p><p>The detailed programme will be announced separately.</p>`],
+      ["Registration", `<p>All devotees must register in advance. Please provide each participant’s <b>full name (as per Aadhaar), age, gender, address and mobile number</b>.</p>
+        <p>To register, contact the Trust on <a href="tel:+919943911030"><b>+91 99439 11030</b></a> by phone or WhatsApp. The last date for registration is <b>31.12.2026</b>. A registration is final only once the organisers confirm it.</p>
+        <p>Devotees who register early will be given priority for rooms closer to the venue.</p>`],
+      ["Train Travel and Bus Pick-up / Drop", `<p>Train schedules from various major cities are given <a href="#trains">below</a>. Train ticket booking opens on <b>Friday, 4 December 2026 at 8:00 AM</b>.</p>
+        <div class="callout">Bus pick-up / drop between Solapur and Pandharpur will be arranged <b>only</b> for the specific trains marked in the train list. Devotees who wish to use this facility must inform the Trust <b>at the time of registration</b>.</div>
+        <p>Devotees arriving by any other train or by air must make their own transport arrangements. Solapur is the main railway station for Pandharpur; a few trains also serve Pandharpur station directly.</p>`],
+      ["Travel via Solapur", `<p>Solapur bus stand is about 1 km from Solapur railway station. Government buses run between Solapur and Pandharpur; the journey takes about 1.5 hours.</p>
+        <p>Buses are generally available every 30 minutes from 5:00 AM to 8:00 PM. Night services are less frequent but available.</p>
+        <p>Pandharpur bus stand is about 1.5 km from the Mela venue; an auto-rickshaw costs approximately ₹100–₹150.</p>`],
+      ["Travel via Pandharpur Station", `<p>Pandharpur railway station is approximately 2 km from the Mela venue. An auto-rickshaw from the station to the venue costs approximately ₹100–₹150.</p>`],
+      ["Air Travel", `<p>Devotees travelling by air may use Pune airport. A taxi from Pune to Pandharpur takes about 6 hours, and the one-way fare is approximately ₹6,000.</p>`],
+      ["Food During Travel", `<p>Devotees must arrange their own food for the onward journey. For the return journey, the organisers propose to provide packed food for one or two meals, as far as possible. Further details will be announced.</p>`],
+      ["Accommodation and Room Sharing", `<p>Rooms are booked from the <b>morning of 03.02.2027 until 12:00 noon on 07.02.2027</b>, approximately 300–500 metres from the Mela venue.</p>
+        <div class="callout">To keep the cost as low as possible so that more devotees can join, only <b>moderate (simple) accommodation</b> has been booked. However, the rooms are large and can accommodate more persons per room.</div>
+        <p>Typically, two people can sleep on the bed, and two more on the floor with extra bedding. Sharing a room as a group of 3 or 4 reduces the cost per person. Tariffs for AC and Non-AC rooms are fixed separately, based on the number of occupants.</p>
+        <p>Please check out by 12:00 noon on 07.02.2027; you are welcome to wait at the Mela venue for your evening train. Those who need the room beyond noon must pay an additional charge.</p>
+        <p>For tariff details, please contact the Trust on <a href="tel:+919943911030"><b>+91 99439 11030</b></a>.</p>`],
+      ["Prasadam (Food) Arrangements", `<p>Prasadam for devotees is arranged <b>at the Mela venue</b>. Morning coffee, breakfast, lunch, evening coffee and dinner are served at fixed times, and devotees must come to the serving area <b>within those times</b> to partake.</p>
+        <p>Prasadam is provided from <b>breakfast on 03.02.2027 to dinner on 07.02.2027</b>.</p>`],
+      ["Darshan and Local Visits", `<p>The Trust will not arrange darshan or local visits. Devotees may book darshan online directly through the temple’s official website.</p>
+        <p>Details and guidance for online booking will be shared separately with devotees who have registered for the Mela. Devotees must make their own arrangements for darshan and local travel.</p>`],
+      ["Weather and Personal Preparation", `<p>February temperatures are usually around 20°C–30°C, though the weather may vary. Please check the forecast before travel and bring suitable clothing, personal medicines, identity documents and other essentials.</p>`],
+      ["Mela ID, Fees and Confirmation", `<p>Please follow the organisers’ instructions regarding any Mela identity card or registration confirmation required to participate. Participation / accommodation charges and payment instructions will be communicated separately.</p>
+        <p><b>Please confirm your registration with the Trust before finalising travel plans.</b></p>`],
+      ["Cancellation Policy", `<div class="cancel"><table class="tbl"><tbody>
+        <tr><td>Before 20 January 2027</td><td><b>₹500</b> will be deducted per cancellation, whether it is for the entire group or for individual member(s) of the group.</td></tr>
+        <tr><td>On or after 20 January 2027</td><td><b>50%</b> of the applicable amount will be deducted.</td></tr>
+        </tbody></table></div>`],
+      ["Changes and Cooperation", `<p>The Trust will make arrangements to the best of its ability. Unavoidable circumstances may require changes to the programme or facilities; the organisers’ decision will be final.</p>
+        <p>Please register early, follow the programme, keep the venue clean and cooperate with the volunteers.</p>`],
+      ["Nama Sankeerthanam Is Our Primary Purpose", `<p>The primary purpose of this Mela is Nama Sankeerthanam. With the desire to conduct our Mela in the sacred abode of Sri Vittal at Pandharpur, arrangements are being made keeping in mind the collective needs of all devotees.</p>
+        <p>As it may not be possible to provide every facility to everyone, we will give priority to elderly devotees and those who register early, and meet their needs to the extent possible. We request everyone to register in advance and extend their cooperation.</p>`],
+      ["Volunteer Service", `<p>Devotees who wish to offer volunteer service during the Mela are requested to let us know at the time of registration. We will make use of their services to the extent possible.</p>`],
+      ["Nama Pracharam, Kainkaryam and Contributions", `<p>Krishna Kudumbam Trust is engaged in Nama Pracharam and conducts Nama Sankeerthana Melas at various kshetras every year, with the aim of bringing as many devotees as possible into Nama Pracharam. We request devotees to offer Nama as their contribution through our <b>Mahamantra Nama Bank</b>.</p>
+        <p>Although a small contribution is collected from participants towards accommodation and Mela arrangements, it is the kainkaryam of volunteer devotees, through both physical service and monetary support, that enables us to conduct these Melas year after year. We sincerely thank them.</p>
+        <p>Devotees who wish to contribute voluntarily towards Annadanam or other seva may contact the Trust on <a href="tel:+919943911030"><b>+91 99439 11030</b></a>, or send their contribution directly to the Trust’s bank account (details below).</p>`],
+    ],
+    bankTitle: "Bank Details for Contributions",
+    bankLabels: ["Account Name", "Account Number", "Bank", "Branch", "IFSC", "UPI ID", "UPI Phone Number"],
+    bankNote: "After transferring, please WhatsApp your name and transaction details to +91 99439 11030.",
+    copy: "Copy", copied: "Copied",
+    mantraTitle: "Hare Rama Hare Krishna",
+    mantraText: "This Nama Sankeerthana Mela is being conducted for the welfare of the entire world. We lovingly request devotees to use this sacred opportunity to offer their Nama Japa to the Mahamantra Nama Nidhi.",
+    mantra: ["Hare Rama Hare Rama Rama Rama Hare Hare", "Hare Krishna Hare Krishna Krishna Krishna Hare Hare"],
+    nnb: "Mahamantra Nama Bank",
+    trainTitle: "Train Timings",
+    trainIntro: "Onward train booking opens on Friday, 4 December 2026 at 8:00 AM; return train booking opens on Wednesday, 9 December 2026. Please book your own tickets. Tap below to see the train list.",
+    onward: "Onward trains (to Pandharpur)", ret: "Return trains",
+    viewTimings: "View train timings",
+    trainNote: "Bus pick-up / drop between Solapur and Pandharpur is arranged <b>only</b> for trains marked “Bus arranged”. Tell the Trust at the time of registration if you need it.",
+    bookTitle: "Ready to register?",
+    bookText: "Registration closes on 31 December 2026. Register early for priority on rooms closer to the venue.",
+    bookBtn: "Go to the booking website", bookShort: "Accommodation Booking", mainMenu: "Main Menu",
+    contactBtn: "Contact 99439 11030",
+    tariffTitle: "Tariff (per person)",
+    occHead: "", occ2: "2 per room", occ3: "3 per room", occ4: "4 per room",
+    ac: "AC", nonAc: "Non-AC",
+    tariffNote: "Approximate. The Trust will confirm the final amount.",
+  },
+
+  ta: {
+    switchTo: "English",
+    trustShort: "க்ருஷ்ண குடும்பம் டிரஸ்ட்",
+    melaShort: "பண்டரிபுரம் மேளா 2027",
+    title: "பண்டரிபுரம் நாம சங்கீர்த்தன மேளா",
+    subtitle: "பக்தர்களுக்கான வழிகாட்டுதல்கள்",
+    readCarefully: "வழிகாட்டுதல்களைக் கவனமாகப் படிக்கவும்.",
+    dates: [
+      ["ரயில் முன்பதிவு ஆரம்பம் (வெள்ளி)", "4 டிச 2026, காலை 8"],
+      ["பதிவு கடைசி நாள்", "31 டிச 2026"],
+      ["மேளா தொடக்கம்", "3 பிப் 2027, மாலை"],
+      ["நிறைவு / அறை காலி", "7 பிப் 2027, மதியம்"],
+    ],
+    menu: [
+      ["📖", "வழிகாட்டுதல்கள்", "இடம், தங்குமிடம், ப்ரஸாதம், பயணம், விதிமுறைகள்"],
+      ["🚆", "போகும் ரயில் நேரங்கள்", "பண்டரிபுரம் நோக்கி · முன்பதிவு 4 டிச. 2026"],
+      ["🏠", "திரும்பும் ரயில் நேரங்கள்", "பண்டரிபுரத்திலிருந்து · முன்பதிவு 9 டிச. 2026"],
+      ["📝", "தங்குமிட பதிவு", "பதிவுக்கான கடைசி நாள்: 31 டிச. 2026 ↗"],
+    ],
+    sections: [
+      ["முன்னுரை", `<p>ஶ்ரீ க்ருஷ்ண சைதன்ய மஹாப்ரபுவின் அனுக்ரஹத்தாலும், ஆசார்யர்கள் மற்றும் ஶ்ரீ ஸத்குருநாதாளின் ஆசீர்வாதத்தாலும், வருகிற <b>03.02.2027 புதன் முதல் 07.02.2027 ஞாயிறு வரை</b> 5 நாட்கள், மஹாராஷ்டிர மாநிலத்தில் உள்ள ஶ்ரீ பாண்டுரங்க விட்டலனின் புண்ய க்ஷேத்ரமான பண்டரிபுரத்தில் நாம ஸங்கீர்த்தன மேளா நமது டிரஸ்ட் மூலமாக நடைபெற இருக்கிறது. பக்தர்கள் இந்த நாம வைபவத்தில் கலந்துகொண்டு ஶ்ரீ பாண்டுரங்கனின் க்ருபையை அனுபவிக்க வேண்டிக்கொள்கிறோம்.</p>
+        <p>மேளாவிற்கான ஏற்பாடுகள், குறிப்பாக பக்தர்களின் தங்குமிடம், ப்ரஸாதம் மற்றும் இதர வசதிகள், டிரஸ்ட் மூலமாக மேளா கமிட்டியினரால் (தன்னார்வக் குழு) மேற்கொள்ளப்படுகின்றன. பக்தர்கள் தங்கள் வருகையை <b>கண்டிப்பாக முன்கூட்டியே</b> எங்களிடம் பதிவு செய்து கொள்ள வேண்டுகிறோம். பண்டரிபுரம் வருவதற்கும் திரும்புவதற்குமான <b>ரயில் / பயண டிக்கெட்டுகளை பக்தர்களே முன்பதிவு செய்து கொள்ள வேண்டும்</b>. வருகையைப் பதிவு செய்வதற்கான விவரங்களையும் சில நெறிமுறைகளையும் இங்கே தொகுத்து வழங்கியுள்ளோம்.</p>`],
+      ["மேளா நடைபெறும் இடம் மற்றும் நேரம்", `<p>மேளா நடைபெறும் இடம் விட்டலன் கோவிலிலிருந்து சுமார் 500 மீட்டர் தொலைவில் உள்ளது. மேளா <b>03.02.2027</b> அன்று மாலை தொடங்கும். தினமும் காலை 6:00 மணி முதல் இரவு 10:00 மணி வரை நிகழ்ச்சிகள் நடைபெறும். <b>07.02.2027</b> அன்று மதியம் 12:00 மணிக்கு மேளா நிறைவடையும்.</p><p>விரிவான நிகழ்ச்சி நிரல் தனியாக அறிவிக்கப்படும்.</p>`],
+      ["முன்பதிவு", `<p>பங்கேற்க விரும்பும் பக்தர்கள் அனைவரும் முன்கூட்டியே பதிவு செய்ய வேண்டும். ஒவ்வொரு பங்கேற்பாளரின் <b>முழுப் பெயர் (ஆதாரில் உள்ளபடி), வயது, பாலினம், முகவரி மற்றும் கைபேசி எண்ணை</b> வழங்கவும்.</p>
+        <p>பதிவு செய்ய <a href="tel:+919943911030"><b>+91 99439 11030</b></a> என்ற எண்ணில் தொலைபேசி அல்லது வாட்ஸ்அப் மூலம் தொடர்பு கொள்ளவும். பதிவு செய்ய கடைசி நாள் <b>31.12.2026</b>. ஏற்பாட்டாளர்கள் உறுதி செய்த பின்னரே பதிவு உறுதியாகும்.</p>
+        <p>முன்கூட்டியே பதிவு செய்பவர்களுக்கு, மேளா நடைபெறும் இடத்திற்கு அருகிலேயே அறை ஒதுக்கீட்டில் முன்னுரிமை வழங்கப்படும்.</p>`],
+      ["ரயில் பயணம் மற்றும் பேருந்து பிக்-அப் / டிராப்", `<p>பல்வேறு முக்கிய நகரங்களிலிருந்து வரும் ரயில்களின் அட்டவணை <a href="#trains">கீழே</a> வழங்கப்பட்டுள்ளது. ரயில் டிக்கெட் முன்பதிவு <b>04.12.2026 (வெள்ளிக்கிழமை) காலை 8:00 மணிக்கு</b> தொடங்கும்.</p>
+        <div class="callout">ரயில் அட்டவணையில் குறிப்பிடப்பட்டுள்ள குறிப்பிட்ட ரயில்களில் வரும் பக்தர்களுக்கு <b>மட்டுமே</b> சோலாப்பூர்–பண்டரிபுரம் இடையே பேருந்து பிக்-அப் / டிராப் வசதி ஏற்பாடு செய்யப்படும். இந்த வசதியைப் பயன்படுத்த விரும்புவோர் <b>பதிவு செய்யும் நேரத்திலேயே</b> டிரஸ்டிடம் தெரிவிக்க வேண்டும்.</div>
+        <p>வேறு ரயில்களில் அல்லது விமானம் மூலம் வரும் பக்தர்கள் தங்களது போக்குவரத்து ஏற்பாடுகளைத் தாங்களே செய்து கொள்ள வேண்டும். பண்டரிபுரத்திற்கான முக்கிய ரயில் நிலையம் சோலாப்பூர்; சில ரயில்கள் நேரடியாக பண்டரிபுரம் ரயில் நிலையத்திற்கும் வருகின்றன.</p>`],
+      ["சோலாப்பூர் வழியாகப் பயணம்", `<p>சோலாப்பூர் ரயில் நிலையத்திலிருந்து பேருந்து நிலையம் சுமார் 1 கி.மீ. தொலைவில் உள்ளது. சோலாப்பூரிலிருந்து பண்டரிபுரத்திற்கு அரசுப் பேருந்துகள் இயக்கப்படுகின்றன; பயண நேரம் சுமார் 1.5 மணி.</p>
+        <p>பொதுவாக காலை 5:00 மணி முதல் இரவு 8:00 மணி வரை 30 நிமிடங்களுக்கு ஒருமுறை பேருந்துகள் கிடைக்கும். இரவு நேரங்களில் பேருந்துகள் குறைவாக இருந்தாலும் சேவை இருக்கும்.</p>
+        <p>பண்டரிபுரம் பேருந்து நிலையத்திலிருந்து மேளா நடைபெறும் இடம் சுமார் 1.5 கி.மீ.; ஆட்டோ கட்டணம் சுமார் ₹100–₹150.</p>`],
+      ["பண்டரிபுரம் ரயில் நிலையம் வழியாகப் பயணம்", `<p>பண்டரிபுரம் ரயில் நிலையம் மேளா நடைபெறும் இடத்திலிருந்து சுமார் 2 கி.மீ. தொலைவில் உள்ளது. அங்கிருந்து ஆட்டோவில் வர சுமார் ₹100–₹150 கட்டணம் ஆகும்.</p>`],
+      ["விமானப் பயணம்", `<p>விமானப் பயணத்திற்கு புனே விமான நிலையத்தைப் பயன்படுத்தலாம். புனேயிலிருந்து பண்டரிபுரத்திற்கு டாக்ஸியில் வர சுமார் 6 மணி நேரம் ஆகும்; ஒரு வழி டாக்ஸி கட்டணம் சுமார் ₹6,000.</p>`],
+      ["பயணத்திற்கான உணவு", `<p>வரும் பயணத்திற்கான உணவை பக்தர்கள் தாங்களே ஏற்பாடு செய்து கொள்ள வேண்டும். திரும்பும் பயணத்தில், இயன்றவரை ஒன்று அல்லது இரண்டு வேளைகளுக்குப் பார்சல் உணவு வழங்க உத்தேசிக்கப்பட்டுள்ளது. கூடுதல் விவரங்கள் பின்னர் அறிவிக்கப்படும்.</p>`],
+      ["தங்குமிடம் மற்றும் அறை பகிர்வு", `<p>அறைகள் <b>03.02.2027 காலை முதல் 07.02.2027 மதியம் 12:00 மணி வரை</b> முன்பதிவு செய்யப்பட்டுள்ளன. அறைகள் மேளா நடைபெறும் இடத்திலிருந்து சுமார் 300–500 மீட்டர் தொலைவில் அமைந்துள்ளன.</p>
+        <div class="callout">அதிக எண்ணிக்கையிலான பக்தர்கள் கலந்துகொள்ள வசதியாக, தங்கும் செலவை இயன்றவரை குறைவாக வைத்திருக்கும் நோக்கில் <b>மிதமான (சாதாரண) தங்குமிடங்களே</b> ஏற்பாடு செய்யப்பட்டுள்ளன. இருப்பினும் அறைகள் பெரியவை; ஒரு அறையில் அதிக நபர்கள் தங்க இயலும்.</div>
+        <p>இரண்டு பேர் கட்டிலிலும், மேலும் இரண்டு பேர் கூடுதல் படுக்கை வசதியுடன் (Extra bedding) தரையிலும் தங்கலாம். 3 அல்லது 4 பேர் கொண்ட குழுவாக ஒரே அறையைப் பகிர்ந்து கொண்டால் ஒருவருக்கான தங்கும் செலவு குறையும். அறையில் தங்கும் நபர்களின் எண்ணிக்கைக்கு ஏற்ப AC / Non-AC அறைகளுக்குத் தனித்தனியாகக் கட்டணம் நிர்ணயிக்கப்பட்டுள்ளது.</p>
+        <p>07.02.2027 அன்று மதியம் 12:00 மணிக்குள் அறையைக் காலி செய்துவிட்டு, மாலை நேர ரயிலுக்காக மேளா நடைபெறும் இடத்திலேயே காத்திருக்கலாம். அதற்கு மேல் அறை தேவைப்படுவோர் கூடுதல் கட்டணம் செலுத்த வேண்டும்.</p>
+        <p>கட்டண விவரங்களுக்கு டிரஸ்டை <a href="tel:+919943911030"><b>+91 99439 11030</b></a> என்ற எண்ணில் தொடர்பு கொள்ளவும்.</p>`],
+      ["ப்ரஸாத (உணவு) வசதி", `<p>பக்தர்களுக்கான ப்ரஸாத ஏற்பாடுகள் <b>மேளா நடைபெறும் இடத்திலேயே</b> செய்யப்படுகின்றன. காலை காபி / காலை டிபன் / மதிய உணவு / மாலை காபி / இரவு உணவு ஆகியவற்றை பக்தர்கள் <b>குறிப்பிட்ட நேரங்களுக்குள்</b>, அவை வழங்கப்படும் இடத்திற்கு வந்தே உட்கொள்ள வேண்டும்.</p>
+        <p>ப்ரஸாதம் <b>03.02.2027 காலை டிபன் முதல் 07.02.2027 இரவு உணவு வரை</b> ஏற்பாடு செய்யப்படுகிறது.</p>`],
+      ["தரிசனம் மற்றும் உள்ளூர் பயணங்கள்", `<p>டிரஸ்ட் சார்பில் கோவில் தரிசனம் அல்லது உள்ளூர் இடங்களுக்குச் செல்லும் ஏற்பாடுகள் எதுவும் செய்யப்படமாட்டாது. பக்தர்கள் கோவிலின் அதிகாரப்பூர்வ இணையதளம் மூலம் நேரடியாக ஆன்லைனில் தரிசன முன்பதிவு செய்து கொள்ளலாம்.</p>
+        <p>ஆன்லைன் முன்பதிவுக்கான விவரங்களும் வழிகாட்டுதல்களும் மேளாவிற்குப் பதிவு செய்த பக்தர்களுக்குத் தனியாகப் பகிரப்படும். தரிசனம் மற்றும் உள்ளூர் போக்குவரத்திற்கான ஏற்பாடுகளை பக்தர்கள் தாங்களே செய்து கொள்ள வேண்டும்.</p>`],
+      ["வானிலை மற்றும் தனிப்பட்ட தயாரிப்பு", `<p>பிப்ரவரி மாதம் வெப்பநிலை சுமார் 20°C முதல் 30°C வரை இருக்கும்; வானிலை மாறுபடக்கூடும். பயணத்திற்கு முன் வானிலை அறிக்கையைச் சரிபார்த்து, பொருத்தமான உடைகள், தனிப்பட்ட மருந்துகள், அடையாள ஆவணங்கள் மற்றும் தேவையான பொருட்களை எடுத்து வரவும்.</p>`],
+      ["மேளா அடையாள அட்டை, கட்டணம் மற்றும் பதிவு உறுதி", `<p>மேளாவில் பங்கேற்கத் தேவையான அடையாள அட்டை அல்லது பதிவு உறுதிப்படுத்தல் தொடர்பாக ஏற்பாட்டாளர்கள் வழங்கும் வழிமுறைகளைப் பின்பற்றவும். பங்கேற்பு / தங்குமிடக் கட்டணங்கள் மற்றும் பணம் செலுத்தும் வழிமுறைகள் தனியாக அறிவிக்கப்படும்.</p>
+        <p><b>பயண ஏற்பாடுகளை இறுதி செய்வதற்கு முன் டிரஸ்டிடம் பதிவை உறுதி செய்து கொள்ளவும்.</b></p>`],
+      ["முன்பதிவு ரத்து விதிமுறைகள்", `<div class="cancel"><table class="tbl"><tbody>
+        <tr><td>20 ஜனவரி 2027-க்கு முன்</td><td>முழுக் குழுவின் முன்பதிவை ரத்து செய்தாலும் அல்லது குழுவில் உள்ள சில உறுப்பினர்களின் முன்பதிவை ரத்து செய்தாலும், ஒவ்வொரு ரத்துக்கும் <b>₹500</b> பிடித்தம் செய்யப்படும்.</td></tr>
+        <tr><td>20 ஜனவரி 2027 அல்லது அதற்குப் பின்</td><td>பொருந்தக்கூடிய தொகையில் <b>50%</b> பிடித்தம் செய்யப்படும்.</td></tr>
+        </tbody></table></div>`],
+      ["மாற்றங்கள் மற்றும் ஒத்துழைப்பு", `<p>டிரஸ்ட் தன்னால் இயன்ற அளவு ஏற்பாடுகளைச் செய்யும். தவிர்க்க முடியாத சூழ்நிலைகளால் நிகழ்ச்சி நிரல் அல்லது வசதிகளில் மாற்றங்கள் ஏற்படலாம்; ஏற்பாட்டாளர்களின் முடிவே இறுதியானது.</p>
+        <p>முன்கூட்டியே பதிவு செய்து, நிகழ்ச்சி நிரலைப் பின்பற்றி, மேளா நடைபெறும் இடத்தைத் தூய்மையாக வைத்துக்கொண்டு, தன்னார்வலர்களுடன் ஒத்துழைக்குமாறு கேட்டுக்கொள்கிறோம்.</p>`],
+      ["நாம சங்கீர்த்தனமே நமது முக்கிய நோக்கம்", `<p>நாம சங்கீர்த்தனமே நமது மேளாவின் முக்கிய நோக்கமாகும். ஸ்ரீ விட்டலரின் புண்ணியத் தலமான பண்டரிபுரத்தில் நமது மேளாவை நடத்த வேண்டும் என்ற எண்ணத்தில், அனைத்து பக்தர்களின் ஒட்டுமொத்த தேவைகளையும் கருத்தில் கொண்டு ஏற்பாடுகள் செய்யப்படுகின்றன.</p>
+        <p>அனைவருக்கும் எல்லா வசதிகளையும் செய்து கொடுப்பது சவாலானது என்பதால், வயதான பெரியவர்களுக்கும் முதலில் பதிவு செய்பவர்களுக்கும் முன்னுரிமை அளித்து, இயன்ற அளவு அவர்களின் தேவைகளைப் பூர்த்தி செய்ய முயற்சிக்கிறோம். இயன்றவரை முன்கூட்டியே பதிவு செய்து ஒத்துழைக்குமாறு கேட்டுக்கொள்கிறோம்.</p>`],
+      ["தன்னார்வ சேவை", `<p>இந்த மேளாவில் தன்னார்வச் சேவை செய்ய விரும்பும் பக்தர்கள் பதிவு செய்யும்போதே தெரிவிக்குமாறு கேட்டுக்கொள்கிறோம். அவர்களின் சேவையை இயன்ற அளவு பயன்படுத்திக்கொள்ள ஏற்பாடு செய்கிறோம்.</p>`],
+      ["நாம ப்ரசாரம் மற்றும் கைங்கர்யம்", `<p>க்ருஷ்ண குடும்பம் டிரஸ்ட் நாம ப்ரசாரத்தில் ஈடுபட்டு, ஒவ்வொரு ஆண்டும் பல்வேறு புண்ய க்ஷேத்ரங்களில் நாம ஸங்கீர்த்தன மேளாக்களை நடத்தி வருகிறது. இயன்றவரை அதிக பக்தர்களை நாம ப்ரசாரத்தில் பங்கேற்கச் செய்வதே டிரஸ்டின் நோக்கம். பக்தர்கள் நமது <b>மஹாமந்த்ர நாம வங்கி (Mahamantra Nama Bank)</b> மூலம் நாமத்தைக் காணிக்கையாகச் சமர்ப்பிக்குமாறு கேட்டுக்கொள்கிறோம்.</p>
+        <p>தங்குமிடம் மற்றும் மேளா ஏற்பாடுகளுக்காக பக்தர்களிடமிருந்து ஒரு சிறிய பங்களிப்புத் தொகை பெறப்பட்டாலும், உடல் உழைப்பாலும் பொருளுதவியாலும் கைங்கர்யம் செய்யும் தன்னார்வ பக்தர்களின் பங்களிப்பாலேயே இத்தகைய மேளாக்களை ஆண்டுதோறும் நடத்த முடிகிறது. அந்த பக்தர்களுக்கு எங்கள் மனமார்ந்த நன்றி.</p>
+        <p>அன்னதானம் அல்லது பிற சேவைகளுக்குத் தாமாக முன்வந்து கைங்கர்யம் செய்ய விரும்பும் பக்தர்கள் டிரஸ்டை <a href="tel:+919943911030"><b>+91 99439 11030</b></a> என்ற எண்ணில் தொடர்புகொள்ளலாம் அல்லது டிரஸ்டின் வங்கிக் கணக்கிற்கு நேரடியாக அனுப்பலாம் (விவரங்கள் கீழே).</p>`],
+    ],
+    bankTitle: "கைங்கர்யத்திற்கான வங்கி விவரங்கள்",
+    bankLabels: ["கணக்கு பெயர்", "கணக்கு எண்", "வங்கி", "கிளை", "IFSC", "UPI ID", "UPI தொலைபேசி எண்"],
+    bankNote: "பணம் அனுப்பிய பின், உங்கள் பெயர் மற்றும் பரிவர்த்தனை விவரங்களை +91 99439 11030 என்ற எண்ணுக்கு வாட்ஸ்அப் மூலம் தெரிவிக்கவும்.",
+    copy: "நகல்", copied: "நகலெடுக்கப்பட்டது",
+    mantraTitle: "ஹரே ராம ஹரே க்ருஷ்ண",
+    mantraText: "இந்த நாம வைபவமானது உலக நன்மைக்காக நடைபெறுகிறது. இந்த அரிய வாய்ப்பைப் பயன்படுத்தி மஹாமந்திர நாம நிதிக்கு நாம ஜபத்தைச் சமர்ப்பிக்குமாறு பக்தர்களை அன்புடன் கேட்டுக்கொள்கிறோம்.",
+    mantra: ["ஹரே ராம ஹரே ராம ராம ராம ஹரே ஹரே", "ஹரே க்ருஷ்ண ஹரே க்ருஷ்ண க்ருஷ்ண க்ருஷ்ண ஹரே ஹரே"],
+    nnb: "மஹாமந்த்ர நாம வங்கி",
+    trainTitle: "ரயில் நேரங்கள்",
+    trainIntro: "போகும் ரயில்களுக்கு முன்பதிவு 04.12.2026 (வெள்ளி) காலை 8:00 மணிக்கும், திரும்பும் ரயில்களுக்கு 09.12.2026 (புதன்) அன்றும் தொடங்கும். டிக்கெட்டுகளை நீங்களே முன்பதிவு செய்து கொள்ளவும். ரயில் பட்டியலைப் பார்க்க கீழே தொடவும்.",
+    onward: "வருகை ரயில்கள் (பண்டரிபுரம் நோக்கி)", ret: "திரும்பும் ரயில்கள்",
+    viewTimings: "ரயில் நேரங்களைப் பார்க்க",
+    trainNote: "“பேருந்து உண்டு” எனக் குறிக்கப்பட்ட ரயில்களுக்கு <b>மட்டுமே</b> சோலாப்பூர்–பண்டரிபுரம் பேருந்து பிக்-அப் / டிராப் ஏற்பாடு செய்யப்படும். தேவைப்பட்டால் பதிவு செய்யும்போதே டிரஸ்டிடம் தெரிவிக்கவும்.",
+    bookTitle: "பதிவு செய்யத் தயாரா?",
+    bookText: "பதிவு 31 டிசம்பர் 2026 அன்று முடிவடையும். முன்கூட்டியே பதிவு செய்பவர்களுக்கு மேளா இடத்திற்கு அருகில் அறை ஒதுக்கீட்டில் முன்னுரிமை.",
+    bookBtn: "முன்பதிவு இணையதளத்திற்குச் செல்லவும்", bookShort: "தங்குமிட முன்பதிவு", mainMenu: "முதன்மை மெனு",
+    contactBtn: "தொடர்புக்கு 99439 11030",
+    tariffTitle: "கட்டண அட்டை (ஒருவருக்கு)",
+    occHead: "ஒரு அறையில்", occ2: "2 பேர்", occ3: "3 பேர்", occ4: "4 பேர்",
+    ac: "AC அறை", nonAc: "Non-AC அறை",
+    tariffNote: "தோராயமானது. இறுதித் தொகையை டிரஸ்ட் உறுதி செய்யும்.",
+  },
+};
+
+const BANK = [
+  "Krishna Kudumbam Charitable and Religious Trust",
+  "500101013219690 (Savings)",
+  "City Union Bank Ltd.",
+  "Coimbatore Saibaba Colony, Thachil Complex, 10, Annamalai Road, Saibaba Colony, Coimbatore – 641011",
+  "CIUB0000211",
+  "krishnakudumbamcrt@okicici",
+  "99439 11030",
+];
+const COPYABLE = { 1: "500101013219690", 4: "CIUB0000211", 5: "krishnakudumbamcrt@okicici" };
+
+/* =====================================================================
+   RENDERING
+   ===================================================================== */
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function render(lang) {
+  const L = T[lang];
+  document.documentElement.lang = lang;
+  document.body.classList.toggle("ta", lang === "ta");
+  document.querySelectorAll("[data-t]").forEach((el) => { el.innerHTML = L[el.dataset.t]; });
+  $("#switchLang").textContent = L.switchTo;
+
+  $("#dates").innerHTML = L.dates.map(([l, v]) => `<div class="date-card"><div class="lbl">${l}</div><div class="val">${v}</div></div>`).join("");
+
+  let html = L.sections.map(([h, body], i) =>
+    `<section class="sec" id="s${i + 1}"><h2><span class="num">${i + 1}</span><span>${h}</span></h2>${body}</section>`).join("");
+
+  html += `<section class="sec bank" id="bank"><h2><span class="num">₹</span><span>${L.bankTitle}</span></h2><dl>${
+    L.bankLabels.map((lbl, i) => `<dt>${lbl}</dt><dd>${esc(BANK[i])}${COPYABLE[i] ? ` <button class="copy" data-copy="${COPYABLE[i]}">${L.copy}</button>` : ""}</dd>`).join("")
+  }</dl><div class="callout">${L.bankNote}</div></section>`;
+
+  html += `<section class="sec mantra"><h2>${L.mantraTitle}</h2><p>${L.mantraText}</p>${
+    L.mantra.map((m) => `<div class="m">${m}</div>`).join("")
+  }<p><a style="color:#fff" href="https://www.krishnakudumbam.in/mnb" target="_blank" rel="noopener">${L.nnb}: www.krishnakudumbam.in/mnb</a></p></section>`;
+  $("#sections").innerHTML = html;
+
+  const onwardUrl = `trains.html?dir=onward&lang=${lang}`;
+  const returnUrl = `trains.html?dir=return&lang=${lang}`;
+  $("#lnkOnward").href = onwardUrl;
+  $("#lnkReturn").href = returnUrl;
+
+  const targets = ["#instructions", onwardUrl, returnUrl, BOOKING_URL];
+  $("#menu").innerHTML = L.menu.map(([ic, title, sub], i) =>
+    `<a class="tile${i === 3 ? " book" : ""}" href="${targets[i]}"${i === 3 ? ' target="_blank" rel="noopener"' : ""}>
+      <span class="ti">${ic}</span><b>${title}</b><small>${sub}</small></a>`).join("");
+
+  $("#bookBtn").href = BOOKING_URL;
+  $("#barBook").href = BOOKING_URL;
+}
+
+function choose(lang) {
+  try { localStorage.setItem("melaLang", lang); } catch (e) {}
+  $("#chooser").hidden = true;
+  $("#site").hidden = false;
+  render(lang);
+  route();
+}
+
+// "" or #home shows the menu; any other hash (#instructions, #s9, #book…) opens the instructions.
+function route() {
+  const h = location.hash;
+  const home = !h || h === "#home";
+  $("#homeView").hidden = !home;
+  $("#instrView").hidden = home;
+  const el = !home && h !== "#instructions" && document.querySelector(h);
+  if (el) el.scrollIntoView(); else window.scrollTo(0, 0);
+}
+window.addEventListener("hashchange", () => { if (!$("#site").hidden) route(); });
+
+document.querySelectorAll(".lang-btn").forEach((b) => b.addEventListener("click", () => choose(b.dataset.lang)));
+$("#switchLang").addEventListener("click", () => choose(document.documentElement.lang === "ta" ? "en" : "ta"));
+
+document.addEventListener("click", (e) => {
+  const b = e.target.closest(".copy");
+  if (!b) return;
+  const L = T[document.documentElement.lang];
+  navigator.clipboard?.writeText(b.dataset.copy).then(() => {
+    b.textContent = L.copied;
+    setTimeout(() => (b.textContent = L.copy), 1500);
+  });
+});
+
+// Allow ?lang=ta / ?lang=en links; otherwise show the chooser every visit
+// unless the visitor already picked a language.
+(function init() {
+  const q = new URLSearchParams(location.search).get("lang");
+  let saved = null;
+  try { saved = localStorage.getItem("melaLang"); } catch (e) {}
+  const lang = T[q] ? q : T[saved] ? saved : null;
+  if (lang) choose(lang);
+})();
+</script>
+<script src="music.js"></script>
+</body>
+</html>
